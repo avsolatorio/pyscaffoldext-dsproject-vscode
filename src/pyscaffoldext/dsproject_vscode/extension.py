@@ -18,12 +18,12 @@ class IncludeExtensions(argparse.Action):
         extensions = [
             NoSkeleton("no_skeleton"),
             PreCommit("pre_commit"),
-            DSProject("dsproject"),
+            DSProjectVSCode("dsproject_vscode"),
         ]
         namespace.extensions.extend(extensions)
 
 
-class DSProject(Extension):
+class DSProjectVSCode(Extension):
     """Template for data-science projects
     """
 
@@ -46,12 +46,12 @@ class DSProject(Extension):
         return self
 
     def activate(self, actions):
-        actions = self.register(actions, add_dsproject, after="define_structure")
-        actions = self.register(actions, replace_readme, after="add_dsproject")
+        actions = self.register(actions, add_dsproject_vscode, after="define_structure")
+        actions = self.register(actions, replace_readme, after="add_dsproject_vscode")
         return actions
 
 
-def add_dsproject(struct, opts):
+def add_dsproject_vscode(struct, opts):
     """Adds basic module for custom extension
 
     Args:

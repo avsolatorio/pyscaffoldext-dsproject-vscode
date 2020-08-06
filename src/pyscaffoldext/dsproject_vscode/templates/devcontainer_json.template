@@ -1,0 +1,40 @@
+{
+    "name": "${project}",
+
+    // https://code.visualstudio.com/docs/remote/devcontainerjson-reference
+	"dockerComposeFile": ["../docker-compose.yml"],
+	"service": "dev",
+	"runServices": ["dev"],
+	"workspaceFolder": "/workspace",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.pythonPath": "/opt/conda/envs/${project}/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.formatting.autopep8Path": "/opt/conda/envs/${project}/bin/autopep8",
+		"python.formatting.blackPath": "/opt/conda/envs/${project}/bin/black",
+		"python.formatting.yapfPath": "/opt/conda/envs/${project}/bin/yapf",
+		"python.linting.banditPath": "/opt/conda/envs/${project}/bin/bandit",
+		"python.linting.flake8Path": "/opt/conda/envs/${project}/bin/flake8",
+		"python.linting.mypyPath": "/opt/conda/envs/${project}/bin/mypy",
+		"python.linting.pycodestylePath": "/opt/conda/envs/${project}/bin/pycodestyle",
+		"python.linting.pydocstylePath": "/opt/conda/envs/${project}/bin/pydocstyle",
+		"python.linting.pylintPath": "/opt/conda/envs/${project}/bin/pylint"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [8000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "/opt/conda/envs/${project}/bin/python -m ipykernel install --user --name=${project} && /opt/conda/envs/${project}/bin/python setup.py develop",
+
+	// Comment out to connect as root instead.
+	"remoteUser": "vscode"
+}

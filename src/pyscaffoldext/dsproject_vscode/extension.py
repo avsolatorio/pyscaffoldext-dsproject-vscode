@@ -94,6 +94,22 @@ def add_dsproject_vscode(struct, opts):
     environment_yaml = templates.environment_yaml(opts)
     struct = helpers.ensure(struct, path, environment_yaml, helpers.NO_OVERWRITE)
 
+    path = [opts["project"], ".devcontainer", "devcontainer.json"]
+    devcontainer_json = templates.devcontainer_json(opts)
+    struct = helpers.ensure(struct, path, devcontainer_json, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], ".devcontainer", "Dockerfile"]
+    dockerfile = templates.dockerfile(opts)
+    struct = helpers.ensure(struct, path, dockerfile, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], "environment.dev.yml"]
+    environment_dev_yml = templates.environment_dev_yml(opts)
+    struct = helpers.ensure(struct, path, environment_dev_yml, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], "docker-compose.yml"]
+    docker_compose_yml = templates.docker_compose_yml(opts)
+    struct = helpers.ensure(struct, path, docker_compose_yml, helpers.NO_OVERWRITE)
+
     path = [opts["project"], "requirements.txt"]
     struct = helpers.reject(struct, path)
 

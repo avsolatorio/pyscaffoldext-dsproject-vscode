@@ -110,3 +110,59 @@ def train_model_py(opts):
     """
     template = get_template("train_model_py")
     return template.safe_substitute(opts)
+
+
+def devcontainer_json(opts):
+    """devcontainer.json for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("devcontainer_json")
+    return template.safe_substitute(opts)
+
+
+def docker_compose_yml(opts):
+    """docker_compose.yml for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("docker_compose_yml")
+    return template.safe_substitute(opts)
+
+
+def dockerfile(opts):
+    """Dockerfile for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("dockerfile")
+    return template.safe_substitute(opts)
+
+
+def environment_dev_yml(opts):
+    """environment.dev.yml for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("environment_dev_yml")
+    return template.safe_substitute(opts)

@@ -10,7 +10,7 @@ Just install this package with `pip install pyscaffoldext-dsproject_vscode`
 and note that `putup -h` shows a new option `--dsproject_vscode`.
 Creating a data science project is then as easy as:
 ```
-putup --dsproject_vscode my_ds_project
+putup --dsproject-vscode my_ds_project
 ```
 
 ----------------------------

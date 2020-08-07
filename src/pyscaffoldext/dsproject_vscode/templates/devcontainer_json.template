@@ -10,18 +10,18 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"python.pythonPath": "/opt/conda/envs/${ENV_ID}/bin/python",
+		"python.pythonPath": "/opt/conda/envs/dev/bin/python",
 		"python.linting.enabled": true,
 		"python.linting.pylintEnabled": true,
-		"python.formatting.autopep8Path": "/opt/conda/envs/${ENV_ID}/bin/autopep8",
-		"python.formatting.blackPath": "/opt/conda/envs/${ENV_ID}/bin/black",
-		"python.formatting.yapfPath": "/opt/conda/envs/${ENV_ID}/bin/yapf",
-		"python.linting.banditPath": "/opt/conda/envs/${ENV_ID}/bin/bandit",
-		"python.linting.flake8Path": "/opt/conda/envs/${ENV_ID}/bin/flake8",
-		"python.linting.mypyPath": "/opt/conda/envs/${ENV_ID}/bin/mypy",
-		"python.linting.pycodestylePath": "/opt/conda/envs/${ENV_ID}/bin/pycodestyle",
-		"python.linting.pydocstylePath": "/opt/conda/envs/${ENV_ID}/bin/pydocstyle",
-		"python.linting.pylintPath": "/opt/conda/envs/${ENV_ID}/bin/pylint"
+		"python.formatting.autopep8Path": "/opt/conda/envs/dev/bin/autopep8",
+		"python.formatting.blackPath": "/opt/conda/envs/dev/bin/black",
+		"python.formatting.yapfPath": "/opt/conda/envs/dev/bin/yapf",
+		"python.linting.banditPath": "/opt/conda/envs/dev/bin/bandit",
+		"python.linting.flake8Path": "/opt/conda/envs/dev/bin/flake8",
+		"python.linting.mypyPath": "/opt/conda/envs/dev/bin/mypy",
+		"python.linting.pycodestylePath": "/opt/conda/envs/dev/bin/pycodestyle",
+		"python.linting.pydocstylePath": "/opt/conda/envs/dev/bin/pydocstyle",
+		"python.linting.pylintPath": "/opt/conda/envs/dev/bin/pylint"
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
@@ -33,7 +33,7 @@
 	"forwardPorts": [8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "/opt/conda/envs/${ENV_ID}/bin/python -m ipykernel install --user --name=${project} && /opt/conda/envs/${ENV_ID}/bin/python setup.py develop",
+    "postCreateCommand": "cp /tmp/conda-tmp/${ENV_DEV_FILE} ./ && /opt/conda/envs/${ENV_ID}/bin/python -m ipykernel install --user --name=${project} && /opt/conda/envs/${ENV_ID}/bin/python setup.py develop",
 
 	// Comment out to connect as root instead.
 	"remoteUser": "vscode"

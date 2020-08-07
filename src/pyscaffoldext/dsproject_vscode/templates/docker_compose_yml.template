@@ -20,6 +20,7 @@ services:
       dockerfile: .devcontainer/Dockerfile.dev
       args:
         ENV_DEV_FILE: "environment.dev.yml"
+        PROJECT_ID: ${project}
     volumes:
       - ./:/workspace
     depends_on:

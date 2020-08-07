@@ -154,6 +154,34 @@ def dockerfile(opts):
     return template.safe_substitute(opts)
 
 
+def dockerfile_dev_base(opts):
+    """Dockerfile.dev.base for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("dockerfile_dev_base")
+    return template.safe_substitute(opts)
+
+
+def dockerfile_dev(opts):
+    """Dockerfile.dev for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("dockerfile_dev")
+    return template.safe_substitute(opts)
+
+
 def environment_dev_yml(opts):
     """environment.dev.yml for vscode
 
@@ -165,4 +193,18 @@ def environment_dev_yml(opts):
         str: file content as string
     """
     template = get_template("environment_dev_yml")
+    return template.safe_substitute(opts)
+
+
+def environment_dev_base_yml(opts):
+    """environment.dev.base.yml for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("environment_dev_base_yml")
     return template.safe_substitute(opts)

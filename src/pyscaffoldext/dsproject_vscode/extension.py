@@ -98,13 +98,17 @@ def add_dsproject_vscode(struct, opts):
     devcontainer_json = templates.devcontainer_json(opts)
     struct = helpers.ensure(struct, path, devcontainer_json, helpers.NO_OVERWRITE)
 
-    path = [opts["project"], ".devcontainer", "Dockerfile"]
-    dockerfile = templates.dockerfile(opts)
-    struct = helpers.ensure(struct, path, dockerfile, helpers.NO_OVERWRITE)
+    path = [opts["project"], ".devcontainer", "Dockerfile.dev.base"]
+    dockerfile_dev_base = templates.dockerfile_dev_base(opts)
+    struct = helpers.ensure(struct, path, dockerfile_dev_base, helpers.NO_OVERWRITE)
 
-    path = [opts["project"], "environment.dev.yml"]
-    environment_dev_yml = templates.environment_dev_yml(opts)
-    struct = helpers.ensure(struct, path, environment_dev_yml, helpers.NO_OVERWRITE)
+    path = [opts["project"], ".devcontainer", "Dockerfile.dev"]
+    dockerfile_dev = templates.dockerfile_dev(opts)
+    struct = helpers.ensure(struct, path, dockerfile_dev, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], "environment.dev.base.yml"]
+    environment_dev_base_yml = templates.environment_dev_base_yml(opts)
+    struct = helpers.ensure(struct, path, environment_dev_base_yml, helpers.NO_OVERWRITE)
 
     path = [opts["project"], "docker-compose.yml"]
     docker_compose_yml = templates.docker_compose_yml(opts)

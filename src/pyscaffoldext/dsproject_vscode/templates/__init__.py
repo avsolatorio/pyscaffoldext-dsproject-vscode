@@ -140,20 +140,6 @@ def docker_compose_yml(opts):
     return template.safe_substitute(opts)
 
 
-def dockerfile(opts):
-    """Dockerfile for vscode
-
-    Args:
-        opts (dict): given options, see :obj:`create_project` for
-            an extensive list.
-
-    Returns:
-        str: file content as string
-    """
-    template = get_template("dockerfile")
-    return template.safe_substitute(opts)
-
-
 def dockerfile_dev_base(opts):
     """Dockerfile.dev.base for vscode
 

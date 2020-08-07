@@ -1,24 +1,22 @@
-# pyscaffoldext-dsproject_vscode
+# pyscaffoldext-dsproject-vscode
 
-This extension is forked from the awesome PyScaffold DSProject extension.
+This extension is forked from the awesome [PyScaffold DSProject](https://github.com/pyscaffold/pyscaffoldext-dsproject) extension.
 
 This version of the extension extends the functionality by adding a scaffold component for using the VS Code container development integration.
 
+To benefit from this setup, you must use VS Code with Python and Remote - Containers extensions installed. Docker should also be installed on the host machine.
+
 ## Usage
 
-Just install this package with `pip install pyscaffoldext-dsproject_vscode`
-and note that `putup -h` shows a new option `--dsproject_vscode`.
-Creating a data science project is then as easy as:
+Just install this package with `pip install pyscaffoldext-dsproject-vscode`
+and note that `putup -h` shows a new option `--dsproject-vscode`.
+Creating a data science project with VS Code container development integration is then as easy as:
+
 ```
 putup --dsproject-vscode my_ds_project
 ```
 
 ----------------------------
-
-[![Build Status](https://api.cirrus-ci.com/github/pyscaffold/pyscaffoldext-dsproject.svg?branch=master)](https://cirrus-ci.com/github/pyscaffold/pyscaffoldext-dsproject)
-[![Coveralls](https://img.shields.io/coveralls/github/pyscaffold/pyscaffoldext-dsproject/master.svg)](https://coveralls.io/r/pyscaffold/pyscaffoldext-dsproject)
-[![PyPI-Server](https://img.shields.io/pypi/v/pyscaffoldext-dsproject.svg)](https://pypi.org/project/pyscaffoldext-dsproject)
-
 
 # pyscaffoldext-dsproject
 

@@ -24,7 +24,7 @@ class IncludeExtensions(argparse.Action):
 
 
 class DSProjectVSCode(Extension):
-    """Template for data-science projects
+    """Template for data-science projects with support for VS Code container development
     """
 
     def augment_cli(self, parser):

@@ -2,4 +2,4 @@
 Contributors
 ============
 
-* Florian Wilhelm <florian.wilhelm@inovex.de>
+* Aivin V. Solatorio <avsolatorio@gmail.com>

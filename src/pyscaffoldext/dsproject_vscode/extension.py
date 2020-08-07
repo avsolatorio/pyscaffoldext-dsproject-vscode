@@ -18,12 +18,12 @@ class IncludeExtensions(argparse.Action):
         extensions = [
             NoSkeleton("no_skeleton"),
             PreCommit("pre_commit"),
-            DSProject("dsproject"),
+            DSProjectVSCode("dsproject_vscode"),
         ]
         namespace.extensions.extend(extensions)
 
 
-class DSProject(Extension):
+class DSProjectVSCode(Extension):
     """Template for data-science projects
     """
 
@@ -46,12 +46,12 @@ class DSProject(Extension):
         return self
 
     def activate(self, actions):
-        actions = self.register(actions, add_dsproject, after="define_structure")
-        actions = self.register(actions, replace_readme, after="add_dsproject")
+        actions = self.register(actions, add_dsproject_vscode, after="define_structure")
+        actions = self.register(actions, replace_readme, after="add_dsproject_vscode")
         return actions
 
 
-def add_dsproject(struct, opts):
+def add_dsproject_vscode(struct, opts):
     """Adds basic module for custom extension
 
     Args:
@@ -93,6 +93,26 @@ def add_dsproject(struct, opts):
     path = [opts["project"], "environment.yaml"]
     environment_yaml = templates.environment_yaml(opts)
     struct = helpers.ensure(struct, path, environment_yaml, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], ".devcontainer", "devcontainer.json"]
+    devcontainer_json = templates.devcontainer_json(opts)
+    struct = helpers.ensure(struct, path, devcontainer_json, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], ".devcontainer", "Dockerfile.dev.base"]
+    dockerfile_dev_base = templates.dockerfile_dev_base(opts)
+    struct = helpers.ensure(struct, path, dockerfile_dev_base, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], ".devcontainer", "Dockerfile.dev"]
+    dockerfile_dev = templates.dockerfile_dev(opts)
+    struct = helpers.ensure(struct, path, dockerfile_dev, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], "environment.dev.base.yml"]
+    environment_dev_base_yml = templates.environment_dev_base_yml(opts)
+    struct = helpers.ensure(struct, path, environment_dev_base_yml, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], "docker-compose.yml"]
+    docker_compose_yml = templates.docker_compose_yml(opts)
+    struct = helpers.ensure(struct, path, docker_compose_yml, helpers.NO_OVERWRITE)
 
     path = [opts["project"], "requirements.txt"]
     struct = helpers.reject(struct, path)

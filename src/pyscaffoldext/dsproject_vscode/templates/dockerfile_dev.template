@@ -1,0 +1,14 @@
+FROM dev-container-base
+
+ARG ENV_DEV_FILE=environment.dev.yml
+
+COPY ${ENV_DEV_BASE_FILE} ${ENV_DEV_FILE}* /tmp/conda-tmp/
+
+# If the dev env file doesn't exist, create a new file.
+RUN [[ ! -f /tmp/conda-tmp/${ENV_DEV_FILE} ]] && conda env export -n ${ENV_ID} --no-builds | grep -v "prefix" > /workspace/${ENV_DEV_FILE}
+
+# Always try to install the latest dev env file.
+RUN conda env update -n ${ENV_ID} --file /tmp/conda-tmp/${ENV_DEV_FILE}  --prune
+
+# Add this so that the container doesn't exit prematurely
+CMD ["tail", "-f", "/dev/null"]

@@ -54,20 +54,6 @@ def gitignore_data(opts):
     return template.safe_substitute(opts)
 
 
-def environment_yaml(opts):
-    """Environment.yaml with some basic libraries
-
-    Args:
-        opts (dict): given options, see :obj:`create_project` for
-            an extensive list.
-
-    Returns:
-        str: file content as string
-    """
-    template = get_template("environment_yaml")
-    return template.safe_substitute(opts)
-
-
 def readme_md(opts):
     """Adds a basic README.md
 
@@ -151,20 +137,6 @@ def dockerfile_dev_base(opts):
         str: file content as string
     """
     template = get_template("dockerfile_dev_base")
-    return template.safe_substitute(opts)
-
-
-def dockerfile_dev(opts):
-    """Dockerfile.dev for vscode
-
-    Args:
-        opts (dict): given options, see :obj:`create_project` for
-            an extensive list.
-
-    Returns:
-        str: file content as string
-    """
-    template = get_template("dockerfile_dev")
     return template.safe_substitute(opts)
 
 

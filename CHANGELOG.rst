@@ -2,6 +2,12 @@
 Changelog
 =========
 
+Version 0.1.2
+=============
+
+- Simplify docker image creation
+- Integrate with Travis
+
 Version 0.1.1
 =============
 

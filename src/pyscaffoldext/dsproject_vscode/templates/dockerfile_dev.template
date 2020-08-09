@@ -12,7 +12,7 @@ COPY ${ENV_DEV_BASE_FILE} ${ENV_DEV_FILE}* /tmp/conda-tmp/
 RUN [ ! -f /tmp/conda-tmp/${ENV_DEV_FILE} ] && conda env export -n ${ENV_ID} --no-builds | grep -v "prefix" > /tmp/conda-tmp/${ENV_DEV_FILE} || echo 0
 
 # Always try to install the latest dev env file.
-RUN conda env update -n ${ENV_ID} --file /tmp/conda-tmp/${ENV_DEV_FILE}  --prune
+RUN conda env update -n ${ENV_ID} --file /tmp/conda-tmp/${ENV_DEV_FILE}  --prune && rm -rf /opt/conda/pkg/*
 
 # Add this so that the container doesn't exit prematurely
 CMD ["tail", "-f", "/dev/null"]

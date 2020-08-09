@@ -1,3 +1,5 @@
+[![PyPI-Server](https://img.shields.io/pypi/v/pyscaffoldext-dsproject-vscode.svg)](https://pypi.org/project/pyscaffoldext-dsproject-vscode)
+
 # pyscaffoldext-dsproject-vscode
 
 This extension is forked from the awesome [PyScaffold DSProject](https://github.com/pyscaffold/pyscaffoldext-dsproject) extension.

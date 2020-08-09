@@ -2,6 +2,5 @@
 pytest
 pytest-cov
 pyscaffold
-pyscaffoldext-dsproject-vscode
 pytest-virtualenv
 flake8

@@ -4,3 +4,4 @@ pytest-cov
 pyscaffold
 pytest-virtualenv
 flake8
+python-coveralls

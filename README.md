@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/avsolatorio/pyscaffoldext-dsproject-vscode.svg)](https://travis-ci.com/github/avsolatorio/pyscaffoldext-dsproject-vscode)
+[![Coverage Status](https://coveralls.io/repos/github/avsolatorio/pyscaffoldext-dsproject-vscode/badge.svg?branch=master)](https://coveralls.io/github/avsolatorio/pyscaffoldext-dsproject-vscode?branch=master)
 [![PyPI-Server](https://img.shields.io/pypi/v/pyscaffoldext-dsproject-vscode.svg)](https://pypi.org/project/pyscaffoldext-dsproject-vscode)
 
 # pyscaffoldext-dsproject-vscode

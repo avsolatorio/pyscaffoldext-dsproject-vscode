@@ -90,10 +90,6 @@ def add_dsproject_vscode(struct, opts):
     path = [opts["project"], "reports", "figures", ".gitignore"]
     struct = helpers.ensure(struct, path, "", helpers.NO_OVERWRITE)
 
-    path = [opts["project"], "environment.yaml"]
-    environment_yaml = templates.environment_yaml(opts)
-    struct = helpers.ensure(struct, path, environment_yaml, helpers.NO_OVERWRITE)
-
     path = [opts["project"], ".devcontainer", "devcontainer.json"]
     devcontainer_json = templates.devcontainer_json(opts)
     struct = helpers.ensure(struct, path, devcontainer_json, helpers.NO_OVERWRITE)
@@ -101,10 +97,6 @@ def add_dsproject_vscode(struct, opts):
     path = [opts["project"], ".devcontainer", "Dockerfile.dev.base"]
     dockerfile_dev_base = templates.dockerfile_dev_base(opts)
     struct = helpers.ensure(struct, path, dockerfile_dev_base, helpers.NO_OVERWRITE)
-
-    path = [opts["project"], ".devcontainer", "Dockerfile.dev"]
-    dockerfile_dev = templates.dockerfile_dev(opts)
-    struct = helpers.ensure(struct, path, dockerfile_dev, helpers.NO_OVERWRITE)
 
     path = [opts["project"], "environment.dev.base.yml"]
     environment_dev_base_yml = templates.environment_dev_base_yml(opts)

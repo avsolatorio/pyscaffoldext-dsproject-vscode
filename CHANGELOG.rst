@@ -2,6 +2,12 @@
 Changelog
 =========
 
+Version 0.1.3
+=============
+
+- Fix version
+- Update home url
+
 Version 0.1.2
 =============
 

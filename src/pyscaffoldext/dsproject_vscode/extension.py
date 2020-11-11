@@ -64,6 +64,7 @@ def add_dsproject_vscode(struct, opts):
         struct, opts: updated project representation and options
     """
     gitignore_all = templates.gitignore_all(opts)
+    gitkeep = templates.gitkeep(opts)
 
     path = [opts["project"], "data", ".gitignore"]
     struct = helpers.ensure(
@@ -72,6 +73,9 @@ def add_dsproject_vscode(struct, opts):
     for folder in ("external", "interim", "preprocessed", "raw"):
         path = [opts["project"], "data", folder, ".gitignore"]
         struct = helpers.ensure(struct, path, gitignore_all, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], "data", "output", ".gitkeep"]
+    struct = helpers.ensure(struct, path, gitkeep, helpers.NO_OVERWRITE)
 
     path = [opts["project"], "notebooks", "template.ipynb"]
     template_ipynb = templates.template_ipynb(opts)
@@ -90,13 +94,25 @@ def add_dsproject_vscode(struct, opts):
     path = [opts["project"], "reports", "figures", ".gitignore"]
     struct = helpers.ensure(struct, path, "", helpers.NO_OVERWRITE)
 
-    path = [opts["project"], ".devcontainer", "devcontainer.json"]
-    devcontainer_json = templates.devcontainer_json(opts)
-    struct = helpers.ensure(struct, path, devcontainer_json, helpers.NO_OVERWRITE)
+    # path = [opts["project"], ".devcontainer", "devcontainer.json"]
+    # devcontainer_json = templates.devcontainer_json(opts)
+    # struct = helpers.ensure(struct, path, devcontainer_json, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], ".devcontainer", "devcontainer.local.json"]
+    devcontainer_local_json = templates.devcontainer_local_json(opts)
+    struct = helpers.ensure(struct, path, devcontainer_local_json, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], ".devcontainer", "devcontainer.remote.json"]
+    devcontainer_remote_json = templates.devcontainer_remote_json(opts)
+    struct = helpers.ensure(struct, path, devcontainer_remote_json, helpers.NO_OVERWRITE)
 
     path = [opts["project"], ".devcontainer", "Dockerfile.dev.base"]
     dockerfile_dev_base = templates.dockerfile_dev_base(opts)
     struct = helpers.ensure(struct, path, dockerfile_dev_base, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], ".vscode", "settings.json"]
+    settings_json = templates.settings_json(opts)
+    struct = helpers.ensure(struct, path, settings_json, helpers.NO_OVERWRITE)
 
     path = [opts["project"], "environment.dev.base.yml"]
     environment_dev_base_yml = templates.environment_dev_base_yml(opts)
@@ -105,6 +121,14 @@ def add_dsproject_vscode(struct, opts):
     path = [opts["project"], "docker-compose.yml"]
     docker_compose_yml = templates.docker_compose_yml(opts)
     struct = helpers.ensure(struct, path, docker_compose_yml, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], "docker-compose.remote.yml"]
+    docker_compose_remote_yml = templates.docker_compose_remote_yml(opts)
+    struct = helpers.ensure(struct, path, docker_compose_remote_yml, helpers.NO_OVERWRITE)
+
+    path = [opts["project"], "path.env"]
+    path_env = templates.path_env(opts)
+    struct = helpers.ensure(struct, path, path_env, helpers.NO_OVERWRITE)
 
     path = [opts["project"], "requirements.txt"]
     struct = helpers.reject(struct, path)

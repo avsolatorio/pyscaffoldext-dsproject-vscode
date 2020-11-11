@@ -12,7 +12,11 @@ services:
         PROJECT_ID: ${project}
         ENV_DEV_FILE: "environment.dev.yml"
     volumes:
-      - ./:/workspace
+      - ${LOCAL_PATH}:/workspace
+    env_file:
+      - .env
+    # ports:
+    #   - "8088:8088"
     # deploy:
     #   resources:
     #     limits:

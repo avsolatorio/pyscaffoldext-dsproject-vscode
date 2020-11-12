@@ -2,7 +2,7 @@
     "name": "${project}",
 
     // https://code.visualstudio.com/docs/remote/devcontainerjson-reference
-	"dockerComposeFile": ["../docker-compose.yml"],
+	"dockerComposeFile": ["../docker-compose.yml", "../docker-compose.remote.yml"],
 	"service": "dev",
 	"runServices": ["dev"],
 	"workspaceFolder": "/workspace",

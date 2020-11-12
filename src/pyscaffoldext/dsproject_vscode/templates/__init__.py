@@ -54,6 +54,20 @@ def gitignore_data(opts):
     return template.safe_substitute(opts)
 
 
+def gitkeep(opts):
+    """.gitkeep file that keeps directory
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("gitkeep")
+    return template.safe_substitute(opts)
+
+
 def readme_md(opts):
     """Adds a basic README.md
 
@@ -112,8 +126,36 @@ def devcontainer_json(opts):
     return template.safe_substitute(opts)
 
 
+def devcontainer_local_json(opts):
+    """devcontainer.local.json for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("devcontainer_local_json")
+    return template.safe_substitute(opts)
+
+
+def devcontainer_remote_json(opts):
+    """devcontainer.remote.json for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("devcontainer_remote_json")
+    return template.safe_substitute(opts)
+
+
 def docker_compose_yml(opts):
-    """docker_compose.yml for vscode
+    """docker-compose.yml for vscode
 
     Args:
         opts (dict): given options, see :obj:`create_project` for
@@ -123,6 +165,20 @@ def docker_compose_yml(opts):
         str: file content as string
     """
     template = get_template("docker_compose_yml")
+    return template.safe_substitute(opts)
+
+
+def docker_compose_remote_yml(opts):
+    """docker-compose.remote.yml for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("docker_compose_remote_yml")
     return template.safe_substitute(opts)
 
 
@@ -165,4 +221,32 @@ def environment_dev_base_yml(opts):
         str: file content as string
     """
     template = get_template("environment_dev_base_yml")
+    return template.safe_substitute(opts)
+
+
+def path_env(opts):
+    """path.env for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("path_env")
+    return template.safe_substitute(opts)
+
+
+def settings_json(opts):
+    """settings.json for vscode
+
+    Args:
+        opts (dict): given options, see :obj:`create_project` for
+            an extensive list.
+
+    Returns:
+        str: file content as string
+    """
+    template = get_template("settings_json")
     return template.safe_substitute(opts)

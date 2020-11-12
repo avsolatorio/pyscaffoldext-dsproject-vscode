@@ -20,6 +20,37 @@ Creating a data science project with VS Code container development integration i
 putup --dsproject-vscode my_ds_project
 ```
 
+After the project is created, set the following softlinks from the project root:
+
+```
+ln -s path.env .env
+```
+
+If you want to develop locally, create this softlink:
+
+```
+ln -s .devcontainer/devcontainer.local.json .devcontainer/devcontainer.json
+```
+
+Alternatively, if you want to develop using a remote docker server, use this:
+
+```
+ln -s .devcontainer/devcontainer.remote.json .devcontainer/devcontainer.json
+```
+
+If you have an application that will run inside the dev container that requires a port, specify the list of ports under the `forwardPorts` attribute in the following files:
+
+```
+.devcontainer/devcontainer.local.json
+.devcontainer/devcontainer.remote.json
+```
+
+## Remote docker server
+
+To use a remote docker server, specify the `docker.host` attribute in the `.vscode/settings.json` following the template in the file.
+
+Edit the value of the `REMOTE_PATH` attribute in the `.env` file with the absolute path of the project in the remote server.
+
 ----------------------------
 
 # pyscaffoldext-dsproject

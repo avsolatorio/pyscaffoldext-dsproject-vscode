@@ -1,6 +1,11 @@
 =========
 Changelog
 =========
+Version 0.1.4
+=============
+
+- Add support for remote docker server over ssh
+- Add /data/output directory for lightweight output files
 
 Version 0.1.3
 =============
